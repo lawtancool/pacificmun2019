@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Index exclusive meta tags -->
+		<meta name="keywords" content="Model United Nations, Model UN, MUN, VMUN, PacificMUN, CAHSMUN">
+		<meta name="description" content="">
+		<meta name="author" content="Jae Wu Chun">
+
+		<title></title>
+
+		<!-- External links -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,100" rel="stylesheet">
+
+		<!-- Site stylesheet -->
+		<script src="js/jquery.pjax.js"></script>
+		<link rel="stylesheet" type="text/css" href="./css/style.css">
+	</head>
+	<body>
+		<nav>
+			<div class="menu-bars" onclick="menuClick(this)">
+				<div class="bar1"></div>
+				<div class="bar2"></div>
+				<div class="bar3"></div>
+			</div>
+			<h1>Dare to Speak <span class="nav-fadein">| PacificMUN 2019</span></h1>
+			<aside>
+				<div class="aside-nav">
+					<a class="pacific" href="index.html#pjax-header">PacificMUN</a>
+					<a class="about" href="#">About Us</a>
+					<a class="committee" href="#">Committees</a>
+					<a class="conferene" href="#">Conference</a>
+					<a class="registration" href="#">Registration</a>
+				</div>
+				<div class="aside-bar">
+				</div>
+			</aside>
+		</nav>
+		<main id="pjax-container">
+			<section id="landing">
+				<div class="hero">
+					<h1>About</h1>
+					<h2>February X</h2>
+				</div>
+				<div class="hero-social">
+					<div class="inner">
+						<a href="">insta</a>
+						<a href="">faceb</a>
+					</div>
+				</div>
+			</section>
+			<section id="letter">
+			</section>
+		</main>
+		<script>
+
+			function menuClick(x) {
+				x.classList.toggle("change");
+
+				$("aside").toggleClass("aside-slide").delay(300);
+				$("body").toggleClass("aside-slide").delay(300);
+				$("body").toggleClass("dark");
+			}
+
+			$(document).ready(function() {
+			    var trigger = $(".hero"); //get offset of second div
+			    var offset = trigger.offset().top + 75; //check for top property
+			    $(function () {
+			        $(window).scroll(function () {
+			            if ($(window).scrollTop() >= offset) {
+			                $(".nav-fadein").css("opacity","1");
+			            } else {
+			                $(".nav-fadein").css("opacity","0");
+		                }
+		            });
+		        });
+			});
+
+				$(document).pjax('a', '#pjax-container');
+		</script>
+	</body>
+</html>
