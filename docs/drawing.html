@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>pacificmun drawing 1</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+    <style media="screen">
+      :root {
+        --colour-grey: #303030;
+        --colour-complementary: #0C7SC7;
+        --colour-second-complementary: #0739A6;
+        --colour-logo-dark: #435AA5;
+        --colour-logo-light: #BDDEF5;
+
+        --animation-ease: cubic-bezier(.87,.05,.41,.86);
+      }
+
+      @font-face {
+        font-family: Thick;
+        src: url(thick.otf);
+      }
+
+      * {
+        margin:0;
+        padding:0;
+        font-family:"Roboto", sans-serif;
+        font-weight:300;
+      }
+
+      body {
+        background:var(--colour-grey);
+      }
+
+      body.navOpen {
+        overflow-x:hidden;
+      }
+
+      h1 {
+        text-transform:uppercase;
+        bottom:150px;
+        left:200px;
+        position:absolute;
+        font-size:40px;
+      }
+
+      /* The Overlay (background) */
+      .overlay {
+          /* Height & width depends on how you want to reveal the overlay (see JS below) */
+          height: 100%;
+          width: 0;
+          position: fixed; /* Stay in place */
+          z-index: 1; /* Sit on top */
+          right: 0;
+          top: 0;
+          background-color: rgb(0,0,0); /* Black fallback color */
+          background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+          overflow-x: hidden; /* Disable horizontal scroll */
+          transition: 0.4s var(--animation-ease); /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+      }
+
+      .overlay-middlealign {
+        height:100%;
+        display:flex;
+        align-items:center;
+        max-width:1350px;
+        margin:0 auto;
+      }
+
+      .overlay-left,
+      .overlay-right,
+      .overlay-top,
+      .overlay-bottom {
+        color:white;
+        font-family:"Thick", sans-serif;
+        letter-spacing:1px;
+        text-transform:uppercase;
+      }
+
+      .overlay-left {
+        transform: rotate(270deg);
+        position:absolute;
+        left:0;
+        margin-left:-2%;
+        top:50%;
+      }
+
+      .overlay-right {
+        transform: rotate(90deg);
+        position:absolute;
+        right:0;
+        top:50%;
+      }
+
+      .overlay-bottom {
+        position:absolute;
+        bottom:30px;
+        text-align:center;
+      }
+
+      .overlay-top {
+        position:absolute;
+        top:30px;
+        text-align:center;
+      }
+
+      .overlay-top,
+      .overlay-bottom {
+        width:100%;
+      }
+
+      /* Position the content inside the overlay */
+      .overlay-content {
+          position: relative;
+          width: 420px;
+          margin:0 auto;
+          text-align: center; /* Centered text/links */
+      }
+
+      /* The navigation links inside the overlay */
+      .overlay a {
+          padding: 10px;
+          text-decoration: none;
+          font-size: 36px;
+          color: white;
+          width: auto;
+          display: table;
+          transition: 0.3s; /* Transition effects on hover (color) */
+          font-family:"Thick", sans-serif;
+          letter-spacing:1px;
+          text-transform:uppercase;
+          font-size:55px;
+          line-height:55px;
+
+          margin:0 auto;
+      }
+
+      /* Position the close button (top right corner) */
+      .overlay .close {
+          position: absolute;
+          top:30px;
+          left:30px;
+          background-color:red;
+          height:35px;
+          width:35px;
+          margin:0;
+          padding:0;
+          z-index:1000;
+      }
+
+      /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+      @media screen and (max-height: 450px) {
+          .overlay a {font-size: 20px}
+          .overlay .closebtn {
+              font-size: 40px;
+              top: 15px;
+              right: 35px;
+          }
+      }
+
+      .bars {
+        height:26px;
+        width:35px;
+        position:fixed;
+        top:30px;
+        left:30px;
+        display:flex;
+        align-items:center;
+        flex-direction:column;
+        justify-content: space-between;
+      }
+
+      .bars:hover {
+        cursor:pointer;
+      }
+
+      .bar {
+        width:35px;
+        background:red;
+        height:3.5px;
+        display:block;
+
+        background: linear-gradient(to left, black 50%, white 50%);
+        background-size: 200% 100%;
+        background-position: left bottom;
+        transition: all .15s var(--animation-ease);
+      }
+
+      .bars:hover > .bar,
+      .bars:focus > .bar {
+        background-position: right bottom;
+      }
+
+      a.hover-underline {
+        display: inline-block;
+        position: relative;
+        color: white;
+        font-size:16px;
+        line-height:18px;
+      }
+      .hover-underline::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 1.5px;
+        bottom: 0;
+        left: 0;
+        background-color: white;
+        transform-origin: bottom right;
+        transition: transform 0.25s var(--animation-ease);
+      }
+      .hover-underline:hover::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+
+      #overlay-background {
+        position:fixed;
+        z-index:-1;
+        height:100vh;
+        width:100vw;
+        margin-top:-100vh;
+      }
+
+      img#overlay-bgimg {
+        position:absolute;
+        height:100%;
+        width:100%;
+        object-fit:cover;
+        z-index:1;
+      }
+
+      .overlay-bgimg-overlay {
+        position:absolute;
+        height:100%;
+        width:100%;
+        z-index:3;
+        background:rgba(48,48,48,0.8);
+      }
+
+      .overlay-dynamicimg {
+        width:300px;
+        margin:0 auto;
+      }
+
+      @keyframes FadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0px);
+        }
+      }
+
+      .fadeIn {
+        animation: FadeIn 0.8s var(--animation-ease);
+        animation-fill-mode: backwards;
+      }
+
+      .overlay-content a:nth-child(1) { animation-delay: .1s }
+      .overlay-content a:nth-child(2) { animation-delay: .22s }
+      .overlay-content a:nth-child(3) { animation-delay: .34s }
+      .overlay-content a:nth-child(4) { animation-delay: .46s }
+      .overlay-content a:nth-child(5) { animation-delay: .58s }
+
+      .overlay-content:hover a.fadeIn:not(:hover) {
+        opacity: 0.5 !important; /* conflicting with .fadeIn animation */
+      }
+
+    </style>
+  </head>
+  <body>
+      <div id="navOverlay" class="overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="close" onclick="closeNav()"></a>
+
+        <div class="overlay-top">
+          Dare To Speak
+        </div>
+        <div class="overlay-left">
+          PacificMUN 2019
+        </div>
+        <div class="overlay-right">
+          February X
+        </div>
+        <div class="overlay-bottom">
+          <a href="#" class="hover-underline">Facebook</a> | <a href="#" class="hover-underline">Instagram</a>
+        </div>
+
+        <div class="overlay-middlealign">
+
+          <!-- Overlay content -->
+          <div class="overlay-content">
+            <a href="#" onmouseover="hoverpacific();" onmouseout="hoverdefault();">PacificMUN</a>
+            <a href="#" onmouseover="hoverabout();" onmouseout="hoverdefault();">About Us</a>
+            <a href="#" onmouseover="hovercommittees();" onmouseout="hoverdefault();">Committees</a>
+            <a href="#" onmouseover="hoverconference();" onmouseout="hoverdefault();">Conference</a>
+            <a href="#" onmouseover="hoverregistration();" onmouseout="hoverdefault();">Registration</a>
+          </div>
+
+<!--
+          <div class="overlay-dynamicimg">
+            TODO: Can add stuff here maybe preview, or another image, or a video, or logo
+          </div>
+-->
+
+        </div>
+
+        <div id="overlay-background">
+          <div class="overlay-bgimg-overlay"></div>
+          <img id="overlay-bgimg" src="https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/images/media/706509/2019-bmw-i8-video-review-car-and-driver-photo-706521-s-original.jpg?crop=1xw:1xh;center,center&resize=900:*">
+        </div>
+      </div>
+
+      <!-- Use any element to open/show the overlay navigation menu -->
+      <span class="bars" onclick="openNav()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </span>
+    <script>
+      /* Open when someone clicks on the span element */
+      function openNav() {
+        $("#navOverlay").css("width", "100%");
+        $(".overlay-content a").addClass("fadeIn");
+        $(".overlay-top").addClass("fadeIn");
+        $(".overlay-bottom").addClass("fadeIn");
+        $("body").toggleClass(".navOpen");
+      }
+
+      /* Close when someone clicks on the "x" symbol inside the overlay */
+      function closeNav() {
+        $("#navOverlay").css("width", "0%");
+        $(".overlay-content a").removeClass("fadeIn");
+        $(".overlay-top").removeClass("fadeIn");
+        $(".overlay-bottom").removeClass("fadeIn");
+        $("body").toggleClass(".navOpen");
+      }
+
+      function hoverdefault() {
+          $("#overlay-bgimg").attr("src", "https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/images/media/706509/2019-bmw-i8-video-review-car-and-driver-photo-706521-s-original.jpg?crop=1xw:1xh;center,center&resize=900:*");
+      }
+
+      function hoverpacific() {
+        $("#overlay-bgimg").attr("src", "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/brewster-mcleod-architects-1486154065.jpg?crop=1.00xw:0.811xh;0,0.0803xh&resize=768:*");
+      }
+
+      function hoverabout() {
+        $("#overlay-bgimg").attr("src", "http://www.trionds.com/wp-content/uploads/2018/03/Modern-House-Design.jpg");
+      }
+
+      function hovercommittees() {
+        $("#overlay-bgimg").attr("src", "https://spotthezombiemanitoba.com/wp-content/uploads/2017/03/Modern-House.jpg");
+      }
+
+      function hoverconference() {
+        $("#overlay-bgimg").attr("src", "http://alternativealexandriawaterfrontplan.com/wp-content/uploads/traditional-contemporary-modest-modern-homes-new-home_168912.jpg");
+
+      }
+
+      function hoverregistration() {
+        $("#overlay-bgimg").attr("src", "https://staticshare.america.gov/uploads/2017/04/AP_99050702044.jpg");
+      }
+    </script>
+  </body>
+</html>
