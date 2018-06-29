@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>homepage look</title>
+    <style>
+
+    .bars {
+      height: 26px;
+      width: 35px;
+      position: fixed;
+      top: 30px;
+      left: 30px;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .bars:hover {
+      cursor:pointer;
+    }
+
+    .bar {
+      width:35px;
+      background:red;
+      height:3.5px;
+      display:block;
+
+      background: linear-gradient(to left, black 50%, white 50%);
+      background-size: 200% 100%;
+      background-position: left bottom;
+      transition: all .15s ease-in-out;
+    }
+
+    .bars:hover > .bar,
+    .bars:focus > .bar {
+      background-position: right bottom;
+    }
+
+    @font-face {
+      font-family: Thick;
+      src: url(thick.otf);
+    }
+
+
+
+
+      * {
+        margin:0;
+        padding:0;
+      }
+
+      body {
+        background-color:#303030;
+      }
+
+      .logo {
+        display:inline-block;
+        height:60px;
+        margin-top:25px;
+        margin-right:27px;
+        float:right;
+      }
+
+      h1 {
+        font-family:"Thick", sans-serif;
+        color:white;
+        letter-spacing:1.5px;
+        font-size:35px;
+        text-transform:uppercase;
+        display:inline-block;
+        margin-top:24px;
+        padding-left:90px;
+      }
+
+      .home-image {
+        object-fit:cover;
+        height:600px;
+        width:400px;
+        position:absolute;
+        left:250px;
+        top:90px;
+      }
+
+      h2 {
+        font-family:"Thick", sans-serif;
+        color:white;
+        letter-spacing:1.5px;
+        position:absolute;
+        left:550px;
+        font-size:75px;
+        text-transform:uppercase;
+        top:200px;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <header>
+      <div class="bars">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <h1>PACIFICMUN</h1>
+      <img class="logo" src="logo.svg" alt="logo" />
+    </header>
+
+    <main>
+      <img class="home-image" src="#" />
+      <h2>Dare To Speak</h2>
+    </main>
+
+  </body>
+</html>

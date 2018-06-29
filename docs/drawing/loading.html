@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>pacificmun page preloading</title>
+    <style>
+
+      :root {
+        --animation-ease: cubic-bezier(.87,.05,.41,.86);
+      }
+
+      @font-face {
+        font-family: Thick;
+        src: url(thick.otf);
+      }
+
+      * {
+        margin:0;
+        padding:0;
+      }
+
+      body {
+        height:100vh;
+        width:100vw;
+        background:#303030;
+      }
+
+      .loader {
+        height:100vh;
+        width:100vw;
+        background:black;
+        position:fixed;
+        top:0;
+        left:0;
+
+        animation: BGFade 1s ease-in-out 4.5s;
+        animation-fill-mode: both;
+      }
+
+      .preload {
+        position:absolute;
+        top:calc(50% - 25px);
+        left:calc(50% - 300px);
+        font-family:"Thick", sans-serif;
+        letter-spacing:1.5px;
+        font-size:50px;
+        color:white;
+        text-transform:uppercase;
+        width:600px;
+
+        height:50px;
+        line-height:50px;
+        text-align:center;
+        transition: 0.2s all var(--animation-ease);
+
+        animation: FirstFade 1s var(--animation-ease);
+        animation-fill-mode:both;
+      }
+
+      .firs {
+        animation-delay:0s;
+      }
+
+      .second {
+        animation-delay:1s;
+      }
+
+      .third {
+        animation-delay:2s;
+      }
+
+      .fourth {
+        animation-delay:3s;
+        animation-duration:1.5s;
+      }
+
+      @keyframes FirstFade {
+        0% {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        30% {
+          opacity: 1;
+          transform: translateY(0px);
+        }
+        70% {
+          opacity: 1;
+          transform: translateY(0px);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+      }
+
+      @keyframes BGFade {
+        0% {
+          opacity:1;
+        }
+        50% {
+          opacity:0;
+        }
+        99% {
+          opacity:0;
+          transform: translateY(0);
+        }
+        100% {
+          opacity:0;
+          transform: translateY(-100vh);
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+
+    body content text (needs to be selectable)
+
+    <div class="loader">
+
+      <div class="preload first">
+        Innovative
+      </div>
+
+      <div class="preload second">
+        Affordable
+      </div>
+
+      <div class="preload third">
+        Kicks Ass
+      </div>
+
+      <div class="preload fourth">
+        PacificMUN MMXIX
+      </div>
+
+    </div>
+
+  </body>
+</html>
