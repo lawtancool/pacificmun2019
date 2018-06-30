@@ -34,8 +34,8 @@ body {
   background:var(--colour-grey);
 }
 
-body.navOpen {
-  overflow-x:hidden;
+.navOpen {
+  overflow:hidden;
 }
 
 h1 {
@@ -197,7 +197,7 @@ h1 {
 .bar {
   width:35px;
   background:white;
-  height:2.6px;
+  height:2.3px;
   display:block;
 
   background-size: 200% 100%;
@@ -391,9 +391,9 @@ header {
 
 .logo {
   display:inline-block;
-  height:60px;
-  margin-top:25px;
-  margin-right:27px;
+  height:50px;
+  margin-top:22px;
+  margin-right:22px;
   float:right;
 }
 
@@ -418,7 +418,7 @@ h3 {
   line-height:42px;
   text-transform:uppercase;
   display:inline-block;
-  margin-top:24px;
+  margin:24px 0;
   font-weight:50;
 }
 
@@ -721,6 +721,10 @@ aside {
   min-width:300px;
 }
 
+.item a {
+  text-decoration:none;
+}
+
 .item:first-child {
   padding:0 13px 0 0;
 }
@@ -774,4 +778,15 @@ aside {
   width:100%;
   font-size:50px;
   font-family:"Thick", sans-serif;
+}
+
+.homepagefixed {
+  box-sizing:border-box;
+  margin:80px;
+  background:white;
+  height:calc(100% - 160px);
+  width:calc(100% - 160px);
+  position:fixed;
+  z-index:800;
+  box-shadow:0 0 10px rgba(0,0,0,0.3);
 }

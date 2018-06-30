@@ -50,15 +50,17 @@
           <div class="section fp-auto-height">
             <div class="grid">
               <div class="item">
-                <div class="item-inner">
-                  <img src="https://www.thefamouspeople.com/profiles/images/jesus-christ-4.jpg" alt="">
-                  <div class="item-inner-overlay"></div>
-                  <div class="item-content">
-                    <div class="item-content-text">
-                      Jesus Christ
+                <a href="disec.php">
+                  <div class="item-inner">
+                    <img src="https://www.thefamouspeople.com/profiles/images/jesus-christ-4.jpg" alt="">
+                    <div class="item-inner-overlay"></div>
+                    <div class="item-content">
+                      <div class="item-content-text">
+                        Jesus Christ
+                      </div>
                     </div>
                   </div>
-                </div>
+                </a>
               </div>
                 <div class="item">
                   <div class="item-inner">

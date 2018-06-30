@@ -44,7 +44,7 @@
             var loadedSection = this;
 
             if(anchorLink == 'home'){
-        			$("#bar1").css("width", 80);
+        			$("#bar1").css("width", "80px");
         		}
           }
         });

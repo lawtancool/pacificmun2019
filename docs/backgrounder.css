@@ -1,0 +1,273 @@
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,300,800|Lora:400italic|Playfair+Display:700);
+@font-face {
+  font-weight: normal;
+  font-style: normal;
+  font-family: "icomoon";
+  src: url("https://download1645.mediafire.com/6549rl19smug/ladn1r0s9pm24bc/icomoon.eot?-ee0u0f");
+  src: url("https://download1645.mediafire.com/6549rl19smug/ladn1r0s9pm24bc/icomoon.eot?#iefix-ee0u0f") format("embedded-opentype"), url("https://download1654.mediafire.com/v44ec57wm2jg/8vin9vd6ao977tj/icomoon.woff?-ee0u0f") format("woff"), url("https://download943.mediafire.com/95jyuvrovaxg/6hnj72erpn5gb28/icomoon.ttf?-ee0u0f") format("truetype"), url("https://download847.mediafire.com/l1et66962ong/8t47vrttktgae32/icomoon.svg?-ee0u0f#icomoon") format("svg");
+}
+
+
+::-webkit-scrollbar {
+  width:4px;
+}
+
+::-webkit-scrollbar-track {
+  background:rgba(0, 0, 0, 0.2);
+}
+::-webkit-scrollbar-thumb {
+  background:white;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+strong {
+  font-weight:bold;
+}
+
+.backgrounderpage a {
+  color: #fff;
+}
+
+.backgrounderpage  .container {
+  height: 100%;
+}
+
+.backgrounderpage .header {
+  height: 100%;
+  position: relative;
+  margin: 0 auto;
+  min-height: 560px;
+  width: 100%;
+}
+
+.backgrounderpage .bg-img {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.backgrounderpage .bg-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.backgrounderpage .title {
+  z-index: 500;
+  margin: 0 auto;
+  box-sizing:border-box;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+.backgrounderpage .title h1 {
+  padding: 0.2em 0 0.2em;
+  color: #fff;
+  font-weight: 800;
+  margin: 0 auto;
+  font-family:"Thick", sans-serif;
+  letter-spacing:1.5px;
+
+  bottom:auto;
+  left:auto;
+  position:relative;
+  font-size:50px;
+}
+.backgrounderpage .title p {
+  color: #fff;
+  padding: 0 0 0.6em;
+  font-weight: 300;
+  font-size: 0.85em;
+  margin: 0 auto;
+}
+.backgrounderpage .title h1 {
+  line-height: 1;
+}
+.backgrounderpage .title p.subline {
+  line-height: 1;
+  font-size: 0.85em;
+  font-family:"Thin", sans-serif;
+  letter-spacing:.5px;
+  text-transform:uppercase;
+}
+
+.backgrounderpage button.trigger {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  z-index: 985;
+  display: block;
+  margin-left: -0.5em;
+  padding: 0;
+  width: 1em;
+  height: 1em;
+  border: none;
+  background: transparent;
+  color: transparent;
+  font-size: 2em;
+  cursor: pointer;
+}
+
+.backgrounderpage .container:not(.notrans) button.trigger {
+  -webkit-transition: opacity 0.3s 0.5s;
+  transition: opacity 0.3s 0.5s;
+}
+.backgrounderpage .container.modify:not(.notrans) button.trigger {
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+
+.backgrounderpage button.trigger::before {
+  position: absolute;
+  bottom: 100%;
+  left: -100%;
+  padding: 0.8em;
+  width: 300%;
+  color: #fff;
+  font-size: 0.35em;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.backgrounderpage button.trigger:focus {
+  outline: none;
+}
+.backgrounderpage button.trigger span {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+.backgrounderpage button.trigger span::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  content: "";
+  text-transform: none;
+  font-weight: normal;
+  font-style: normal;
+  font-variant: normal;
+  font-family: "icomoon";
+  line-height: 1;
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Conent */
+.backgrounderpage .content {
+  margin: 0 auto;
+  padding: 0 0 3em;
+}
+.backgrounderpage .content > div:not(.title) {
+  margin: -80px auto 0;
+  max-width: 900px;
+  padding: 0 1.25em;
+}
+.backgrounderpage .content > div:not(.title) p {
+  margin: 0 auto 1.5em auto;
+}
+.backgrounderpage .content > div:not(.title) p:first-child {
+  font-size: 1.35em;
+}
+.backgrounderpage .content h3 {
+  margin: 0;
+  font-size: 1.4em;
+}
+.backgrounderpage .content blockquote {
+  padding: 0.25em;
+  font-style: italic;
+  font-size: 1.65em;
+  font-family: "Lora", serif;
+  line-height: 1.4;
+}
+.backgrounderpage .content blockquote::before {
+  content: "“";
+}
+.backgrounderpage .content blockquote::after {
+  content: "”";
+}
+
+.backgrounderpage .intro-effect-push:not(.notrans) .header, .intro-effect-push:not(.notrans) > .title, .intro-effect-push:not(.notrans) .content > div {
+  -webkit-transition-property: opacity, -webkit-transform;
+  transition-property: opacity, transform;
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+}
+.backgrounderpage .intro-effect-push:not(.notrans) .header {
+  -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+  transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+  -webkit-transition-duration: 1.2s;
+  transition-duration: 1.2s;
+}
+.backgrounderpage .intro-effect-push .codrops-demos a {
+  color: #108576;
+}
+.backgrounderpage .intro-effect-push .header {
+  position: absolute;
+  z-index: 800;
+}
+.backgrounderpage .intro-effect-push > .title {
+  position: relative;
+  top: auto;
+  left: auto;
+  padding: 6em 1em 2em;
+}
+.backgrounderpage .intro-effect-push .content > div {
+  margin-top: 50px;
+  color: #b2b2c0;
+}
+.backgrounderpage .intro-effect-push .content > div {
+  -webkit-transform: translateY(400px);
+  transform: translateY(400px);
+  opacity: 0;
+}
+.backgrounderpage .intro-effect-push > .title {
+  -webkit-transform: translateY(400px);
+  transform: translateY(400px);
+  opacity: 0;
+}
+.backgrounderpage .intro-effect-push.modify > .title, .intro-effect-push.modify .content > div {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+  opacity: 1;
+}
+.backgrounderpage .intro-effect-push.modify .header {
+  opacity: 0;
+  -webkit-transform: translateY(-100%) scale(0.9);
+  transform: translateY(-100%) scale(0.9);
+}
+.backgrounderpage .intro-effect-push.modify:not(.notrans) > .title {
+  -webkit-transition-delay: 0.5s;
+  transition-delay: 0.5s;
+}
+.backgrounderpage .intro-effect-push.modify:not(.notrans) .content > div {
+  -webkit-transition-delay: 0.6s;
+  transition-delay: 0.6s;
+}
+
+header {
+  background: linear-gradient(to bottom, #303030, rgba(0,0,0,0));
+}

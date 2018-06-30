@@ -5,6 +5,7 @@
 
     /* Open when someone clicks on the span element */
     function openNav() {
+      $("body").addClass("navOpen");
       $("#navOverlay").fadeIn("slow");
 
       $(".close svg").addClass("fadeIn");
@@ -23,12 +24,11 @@
 
       $(".overlay-left").addClass("fadeInLeft");
       $(".overlay-right").addClass("fadeInRight");
-
-      $("body").toggleClass(".navOpen");
     }
 
     /* Close when someone clicks on the "x" symbol inside the overlay */
     function closeNav() {
+      $("body").removeClass("navOpen");
       $("#navOverlay").fadeOut("slow");
 
       $(".close svg").removeClass("fadeIn");
@@ -50,7 +50,7 @@
 
       $(".overlay-bottom").css("opacity", "0%");
       $(".overlay-top").css("opacity", "0%");
-      $("body").toggleClass(".navOpen");
+
     }
 
     $('a').click(function(){
@@ -72,36 +72,8 @@
 
       $(".overlay-bottom").css("opacity", "0%");
       $(".overlay-top").css("opacity", "0%");
-      $("body").toggleClass(".navOpen");
+
     });
-
-    function hoverdefault() {
-      $("#overlay-bg-default").css("opacity", "1");
-      $("#overlay-bg-default").siblings().css("opacity", "0");
-    }
-
-    function hoverpacific() {
-      $("#overlay-bg-pacific").css("opacity", 1);
-      $("#overlay-bg-pacific").siblings().css("opacity", "0");
-    }
-
-    function hoverabout() {
-      $("#overlay-bg-about").css("opacity", 1);
-      $("#overlay-bg-about").siblings().css("opacity", "0");
-    }
-
-    function hovercommittees() {
-      $("#overlay-bgimg").attr("src", "https://spotthezombiemanitoba.com/wp-content/uploads/2017/03/Modern-House.jpg");
-    }
-
-    function hoverconference() {
-      $("#overlay-bgimg").attr("src", "http://alternativealexandriawaterfrontplan.com/wp-content/uploads/traditional-contemporary-modest-modern-homes-new-home_168912.jpg");
-
-    }
-
-    function hoverregistration() {
-      $("#overlay-bgimg").attr("src", "https://staticshare.america.gov/uploads/2017/04/AP_99050702044.jpg");
-    }
     </script>
   </body>
 </html>

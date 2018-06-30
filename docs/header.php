@@ -37,8 +37,8 @@
             <a href="drawing.php" onmouseover="hoverpacific();" onmouseout="hoverdefault();">PacificMUN</a>
             <a href="about.php" onmouseover="hoverabout();" onmouseout="hoverdefault();">About Us</a>
             <a href="committees.php" onmouseover="hovercommittees();" onmouseout="hoverdefault();">Committees</a>
-            <a href="#" onmouseover="hoverconference();" onmouseout="hoverdefault();">Conference</a>
-            <a href="#" onmouseover="hoverregistration();" onmouseout="hoverdefault();">Registration</a>
+            <a href="conference.php" onmouseover="hoverconference();" onmouseout="hoverdefault();">Conference</a>
+            <a href="registration.php" onmouseover="hoverregistration();" onmouseout="hoverdefault();">Registration</a>
           </div>
 
 <!--
@@ -50,11 +50,6 @@
         </div>
 
         <div id="overlay-background">
-          <div id="overlay-bg-default"> overlay-bg-default </div>
-          <div id="overlay-bg-pacific"> overlay-bg-pacific </div>
-          <div id="overlay-bg-about"> overlay-bg-about </div>
-          <div id="overlay-bg-committees"> overlay-bg-committees </div>
-          <div id="overlay-bg-conference"> overlay-bg-conference </div>
-          <div id="overlay-bg-registration"> overlay-bg-registration </div>
+          <div id="overlay-bg-default"></div>
         </div>
       </div>
